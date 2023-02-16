@@ -54,7 +54,7 @@ export default {
   <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <div class="fixed inset-0 bg-gray-300 bg-opacity-75 transition-opacity"></div>
 
-      <div class="fixed inset-0 z-10 overflow-y-auto">
+      <div class="fixed inset-0 z-10">
         <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
           <!--
             Modal panel, show/hide based on modal state.
@@ -66,7 +66,7 @@ export default {
               From: "opacity-100 translate-y-0 sm:scale-100"
               To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
           -->
-          <div class="relative transform overflow-hidden rounded-lg bg-white  pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 h-full w-1/2 max-w-4xl md:h-auto ">
+          <div class="relative transform rounded-lg bg-white  pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 h-full w-1/2 max-w-4xl md:h-auto ">
             <!-- Modal header -->
             <div class="flex item-center border-b-2 border-black  rounded-t w-full px-4">
               <div class="grow"></div>
@@ -78,10 +78,13 @@ export default {
               </div> 
             </div>
             <!-- End Modal header-->
-            <div v-for="(message, index) in messagesStore.messages" class="flex-1 px-12 py-4 overflow-y-auto">
+            <div class="overflow-y-auto max-h-96">
+              <div v-for="(message, index) in messagesStore.messages" class="flex-1 px-12 py-4 overflow-y-auto">
               <Sender :message="message" v-if="message.userId === loggedInUserId " />
               <Receiver :message="message" v-else/> 
             </div>
+            </div>
+            
 
             <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0">
               <div class=" flex w-full">
