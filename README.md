@@ -7,6 +7,7 @@ It was built with `Vite`,`Vue.js`, `Pinia` and `tailwind css`.
 1. Clone Project
 2. Run the command:  ``` npm install``` to install node modules 
 3. To serve the application run: ``` npm run dev```
+4. This will serve the application on the url: http://localhost:5173/ 
 
 ## Assummptions
 
