@@ -27,7 +27,7 @@ export default {
     methods: {
       sendMessage(){
         // check to prevent empty message from being sent.
-        if (this.inputText.length == 0){
+        if (this.inputText.trim().length == 0){
           return
         }
 
@@ -88,7 +88,7 @@ export default {
 
             <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0">
               <div class=" flex w-full">
-                <input :autofocus="true" @keyup.enter="sendMessage" @keydown.space.prevent v-model="inputText" type="text" class="w-full focus:outline-none focus:placeholder-gray-400 bg-gray-200 rounded-full py-1 px-4">
+                <input :autofocus="true" @keyup.enter="sendMessage" v-model="inputText" type="text" class="w-full focus:outline-none focus:placeholder-gray-400 bg-gray-200 rounded-full py-1 px-4">
                 <div class="right-0 items-center inset-y-0 hidden sm:flex">
                     <button @click="sendMessage" type="button" class="ml-3 inline-flex items-center justify-center rounded-full px-1 py-1 transition duration-500 ease-in-out text-white bg-blue-500 hover:bg-blue-400 focus:outline-none">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4  transform rotate-90">
