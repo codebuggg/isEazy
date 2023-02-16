@@ -1,11 +1,14 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import ChatModal from './components/ChatModal.vue'
+import test from './components/test.vue';
+// import DownloadUrl from './components/DownloadUrl.vue'
+// import SenderVue from './components/Sender.vue';
+
 </script>
 
 <template>
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+  <ChatModal />
 </template>
+
 
 
