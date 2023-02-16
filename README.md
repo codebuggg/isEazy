@@ -1,7 +1,23 @@
-# Vue 3 + Vite
+# isEazy-code-challenge
+This project is a solution to isEazy Code Challenge
+It was built with `Vite`,`Vue.js`, `Pinia` and `tailwind css`. 
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-## Recommended IDE Setup
+## Project setup
+1. Clone Project
+2. Run the command:  ``` npm install``` to install node modules 
+3. To serve the application run: ``` npm run dev```
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Assummptions
+
+For every message/post sent:
+- A documentis automatically uploaded .
+> Document details: 
+> - Hard coded details:  Name, filetype, downloadURL
+> - Dynamic details: Size, Release Date
+
+For members of the chat
+- Tutor has userId as tutor
+- Student has a userId as student
+
+For every post sent, tutor responds automatically

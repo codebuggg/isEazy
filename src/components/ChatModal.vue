@@ -5,6 +5,12 @@ import {useMessagesStore} from '../stores/messages'
 
 var messagesStore;
 
+const messages = [
+"perfect, excellent work",
+"this looks good to me",
+"good work",
+]
+
 export default {
     components: { Sender, Receiver },
     setup() {
@@ -14,7 +20,7 @@ export default {
     data () {
       return {
         messagesStore,
-        loggedInUserId: "test",
+        loggedInUserId: "student",
         inputText: "",
       }
     },
@@ -25,10 +31,19 @@ export default {
           return
         }
 
+        // For versioning our documents, we try to get previously updated documents and then with the information we discover,
+        // we know the next version to assign the next document being uploaded to.
         const messagesWithDocuments  = messagesStore.messages.filter(message => Boolean(message.document))
-        let newMessage = {text: this.inputText, userId: this.loggedInUserId, createdAt: Date.now(), document: {size: Math.floor(Math.random() * 10 + 1).toFixed(1), version: messagesWithDocuments.length + 1} };
+        let newMessage = {text: this.inputText, userId: this.loggedInUserId, createdAt: Date.now(), document: {
+          size: Math.floor(Math.random() * 10 + 1).toFixed(1), version: messagesWithDocuments.length + 1, name: `project${messagesWithDocuments.length + 1}`, filetype: 'pdf', date: Date.now(), url:"http://pdf.com/project.pdf"
+        } };
         messagesStore.sendMessage(newMessage);
-        messagesStore.sendMessage({userId: "test2", text: "this looks good to me", createdAt: Date.now()});
+
+        // We have some predefined recipient messages. To get a random message, 
+        // we generate a random number between 1 and the length of the predefined messages array.
+        // The resolved message is used as the next recipient message.
+        const randomNumber =Math.floor(Math.random() * (messages.length - 1 + 1)) + 1
+        messagesStore.sendMessage({userId: "tutor", text:messages[randomNumber - 1] , createdAt: Date.now()});
         this.inputText = '';
       }
     }
@@ -70,7 +85,7 @@ export default {
 
             <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0">
               <div class=" flex w-full">
-                <input @keyup.enter="sendMessage" v-model="inputText" type="text" class="w-full focus:outline-none focus:placeholder-gray-400 bg-gray-200 rounded-full py-1 px-4">
+                <input :autofocus="true" @keyup.enter="sendMessage" v-model="inputText" type="text" class="w-full focus:outline-none focus:placeholder-gray-400 bg-gray-200 rounded-full py-1 px-4">
                 <div class="right-0 items-center inset-y-0 hidden sm:flex">
                     <button @click="sendMessage" type="button" class="ml-3 inline-flex items-center justify-center rounded-full px-1 py-1 transition duration-500 ease-in-out text-white bg-blue-500 hover:bg-blue-400 focus:outline-none">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-4 w-4  transform rotate-90">

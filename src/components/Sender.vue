@@ -13,9 +13,9 @@ export default {
 </script>
 <template>
 
-    <DownloadUrl :date="date" :data="message.document"  />
+    <DownloadUrl :data="message.document"  />
 <!-- chat message -->
-    <div class="flex items-center flex-row-reverse mb-4">
+    <div class="flex items-center flex-row-reverse mt-4">
         <div class="flex-none flex flex-col items-center space-y-1 ml-4">
             <img class="rounded-full w-8 h-8"
             src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" />

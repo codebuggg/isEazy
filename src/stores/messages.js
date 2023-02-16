@@ -4,10 +4,9 @@ export const useMessagesStore = defineStore('messages', {
 
     state: () => {
         return { messages: [
-            {text:"This is a ttest", userId: 'test', createdAt: Date.now(), document: {size: 3.8, version: 1}},
-            {text:"This is the love of my life!", userId: 'test2', createdAt: Date.now()},
-            // {text:"This is a ttest", userId: 'test2',},
-            // {text:"This is a ttest", isFile: true,},
+            {text:"Good day Professor", userId: 'student', createdAt: Date.now(), document: {size: 3.8, version: 1, name: "project", filetype: 'pdf', date: Date.now(), url:"http://pdf.com/project.pdf"}},
+            {text:"Good work, but i think you should check point 3", userId: 'tutor', createdAt: Date.now()},
+         
         ],
     }
       },
